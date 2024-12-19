@@ -11,8 +11,8 @@
 int main(){
 
     #define SERVER_PORT 3001
-
-    int client_fd;
+    int i = 0;
+    int client_fd[0];
     int clients[BUFSIZ];
     int nb_clients = 0;
     int server_fd;
@@ -37,15 +37,18 @@ int main(){
     
     while (player < 2){
 
-        client_fd = accept(server_fd,(struct sockaddr*)&addrclient,&len);perror("accept()");
+        client_fd[0] = accept(server_fd,(struct sockaddr*)&addrclient,&len);perror("accept()");
         if(client_fd != -1){
             char buf[BUFSIZ];memset(buf,0,BUFSIZ);
             printf("En attente des deux joueur",buf);
             send(client_fd,buf,BUFSIZ,0);perror("send()");
         }
+        i++;
         player++;
         }
+    while (i = 2){
         
+    }
 
 
 
